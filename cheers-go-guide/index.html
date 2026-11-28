@@ -1,0 +1,679 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style>
+<title>チアーズGO! つかいかたブック</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@500;700;800;900&family=Noto+Sans+JP:wght@400;500;700;900&display=swap">
+<style>
+/* Layout: アプリと同じ「紺の夜空×金の乾杯」。章ごとにアプリの表紙（大きな英単語＋絵）で入り、本物の画面をスマホ枠で横に並べる */
+:root{
+  --navy:#1A2F66; --navy-2:#0F1D45; --sky:#2F86D6; --gold:#F2B705; --gold-2:#FFD45A;
+  --bg:#F4F7FC; --surface:#FFFFFF; --fg:#16224A; --muted:#5A6788; --line:#DCE4F2; --tint:#EAF1FB;
+  --c-home:#1F3F8F; --c-eng:#6B4BD8; --c-tr:#0F8A7A; --c-us:#E2643A; --c-my:#C99300;
+  --on-dark:#FFFFFF; --on-dark-2:rgba(255,255,255,.78);
+  --f-jp:"Noto Sans JP","Hiragino Sans","Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;
+  --f-en:"Inter","Helvetica Neue",Arial,sans-serif;
+  --r-l:24px; --r-m:16px; --r-s:10px;
+  --shadow:0 18px 40px -18px rgba(16,32,80,.35);
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0B1430; --surface:#14204A; --fg:#EEF3FF; --muted:#A9B6D8; --line:#26346A; --tint:#1A2A5C;
+  --c-home:#7EA2FF; --c-eng:#B4A0FF; --c-tr:#4FD1BC; --c-us:#FF9A72; --c-my:#F6C933;
+  --shadow:0 18px 40px -18px rgba(0,0,0,.7); color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0B1430; --surface:#14204A; --fg:#EEF3FF; --muted:#A9B6D8; --line:#26346A; --tint:#1A2A5C;
+  --c-home:#7EA2FF; --c-eng:#B4A0FF; --c-tr:#4FD1BC; --c-us:#FF9A72; --c-my:#F6C933;
+  --shadow:0 18px 40px -18px rgba(0,0,0,.7); color-scheme:dark}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+body{background:var(--bg);color:var(--fg);font-family:var(--f-jp);font-size:16px;line-height:1.75;-webkit-font-smoothing:antialiased}
+h1,h2,h3{text-wrap:balance;margin:0;line-height:1.3}
+p{margin:0}
+.en{font-family:var(--f-en)}
+.num{font-family:var(--f-en);font-variant-numeric:tabular-nums}
+.wrap{max-width:1120px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.eyebrow{font-family:var(--f-en);font-weight:800;font-size:12px;letter-spacing:.16em;text-transform:uppercase}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--gold);outline-offset:3px;border-radius:6px}
+
+/* ---------- HERO ---------- */
+.hero{position:relative;overflow:hidden;color:var(--on-dark);
+  background:radial-gradient(120% 80% at 85% 10%,rgba(242,183,5,.28),transparent 55%),linear-gradient(160deg,#21408F 0%,var(--navy) 45%,var(--navy-2) 100%)}
+.hero::before{content:"";position:absolute;inset:0;background:url(img/cheers_cover.webp) right center/cover no-repeat;opacity:.38;mask-image:linear-gradient(90deg,transparent 20%,#000 75%);-webkit-mask-image:linear-gradient(90deg,transparent 20%,#000 75%)}
+.hero .wrap{position:relative;display:grid;grid-template-columns:1.15fr .85fr;gap:40px;align-items:center;padding-block:64px 72px}
+.brand{display:flex;align-items:center;gap:10px;font-weight:900;font-size:15px;letter-spacing:.04em;margin-bottom:28px}
+.brand .go{font-family:var(--f-en);color:var(--gold);font-style:italic}
+.brand .pill{font-family:var(--f-en);font-size:10px;font-weight:800;letter-spacing:.12em;border:1px solid rgba(255,255,255,.5);border-radius:99px;padding:2px 8px}
+.hero h1{font-size:clamp(34px,5.6vw,60px);font-weight:900;letter-spacing:.01em}
+.hero h1 .big{display:block;font-family:var(--f-en);font-weight:900;font-size:clamp(58px,11vw,128px);letter-spacing:-.04em;line-height:.9;margin-bottom:10px;
+  background:linear-gradient(180deg,#fff 30%,#FFE59A 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero .lead{margin-top:20px;font-size:clamp(16px,1.8vw,19px);color:var(--on-dark-2);max-width:34em}
+.hero .lead b{color:#fff}
+.pillars-mini{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}
+.pillars-mini span{display:inline-flex;align-items:center;gap:8px;padding:8px 14px 8px 8px;border-radius:99px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.22);font-weight:700;font-size:14px;backdrop-filter:blur(6px)}
+.pillars-mini i{font-style:normal;font-family:var(--f-en);font-weight:900;font-size:12px;width:28px;height:28px;border-radius:50%;display:grid;place-items:center;color:var(--navy-2)}
+.cta-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:14px 22px;border-radius:14px;font-weight:900;text-decoration:none;font-size:15px}
+.btn-gold{background:linear-gradient(180deg,var(--gold-2),var(--gold));color:var(--navy-2);box-shadow:0 10px 24px -10px rgba(242,183,5,.8)}
+.btn-ghost{border:1px solid rgba(255,255,255,.4);color:#fff}
+.hero-phone{justify-self:center;transform:rotate(3deg)}
+
+/* ---------- PHONE FRAME ---------- */
+.phone{position:relative;width:min(270px,72vw);aspect-ratio:1/2;border-radius:40px;padding:10px;background:linear-gradient(145deg,#2A3768,#0B1230);box-shadow:0 30px 60px -20px rgba(5,10,40,.6),inset 0 0 0 1.5px rgba(255,255,255,.18);flex:none;max-width:100%}
+.phone img{display:block;width:100%;height:100%;object-fit:cover;object-position:top;border-radius:31px;background:#F4F8FD}
+.phone::after{content:"";position:absolute;top:18px;left:50%;transform:translateX(-50%);width:76px;height:20px;border-radius:12px;background:#0B1230}
+.hero-phone .phone{width:min(300px,74vw)}
+.hero-phone .badge{position:absolute;left:-34px;bottom:70px;background:var(--surface);color:var(--fg);border-radius:16px;padding:12px 16px;box-shadow:var(--shadow);transform:rotate(-3deg);font-size:13px;line-height:1.5}
+.hero-phone .badge b{display:block;font-size:22px;font-family:var(--f-en);color:var(--c-home)}
+
+/* ---------- SECTION ---------- */
+section{padding-block:72px}
+.sec-head{display:grid;gap:12px;margin-bottom:36px;max-width:760px}
+.sec-head .eyebrow{color:var(--sky)}
+.sec-head h2{font-size:clamp(26px,3.6vw,38px);font-weight:900}
+.sec-head p{color:var(--muted);font-size:17px}
+
+/* 3 pillars */
+.pillars{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.pillar{position:relative;border-radius:var(--r-l);overflow:hidden;background:var(--surface);box-shadow:var(--shadow);display:flex;flex-direction:column}
+.pillar .art{aspect-ratio:3/2;background-size:cover;background-position:center;position:relative}
+.pillar .art .word{position:absolute;left:16px;bottom:6px;font-family:var(--f-en);font-weight:900;font-size:clamp(44px,6vw,64px);letter-spacing:-.04em;color:#fff;text-shadow:0 4px 20px rgba(0,0,0,.25);line-height:1}
+.pillar .body{padding:20px 22px 24px;display:grid;gap:8px}
+.pillar h3{font-size:20px;font-weight:900}
+.pillar p{color:var(--muted);font-size:15px}
+.pillar .goal{margin-top:6px;font-size:13px;font-weight:700;color:var(--fg);background:var(--tint);border-radius:10px;padding:8px 12px}
+.my-strip{margin-top:20px;border-radius:var(--r-l);padding:22px 26px;display:flex;flex-wrap:wrap;align-items:center;gap:14px 24px;background:linear-gradient(100deg,#FFF5D1,#FFE7A0);color:#3D2D00}
+.my-strip b.word{font-family:var(--f-en);font-weight:900;font-size:34px;letter-spacing:-.03em;color:#9A6F00}
+.my-strip p{flex:1 1 240px;min-width:0;font-weight:700}
+
+/* benefits */
+.benefits{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+.benefit{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-m);padding:22px;display:grid;align-content:start;gap:10px}
+.benefit .k{font-family:var(--f-en);font-weight:900;font-size:13px;letter-spacing:.12em;color:var(--sky)}
+.benefit h3{font-size:21px;font-weight:900}
+.benefit p{font-size:14.5px;color:var(--muted)}
+.benefit .how{font-size:13px;font-weight:700;color:var(--fg);border-top:1px dashed var(--line);padding-top:10px}
+
+/* steps */
+.steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;counter-reset:s}
+.step{position:relative;border-radius:var(--r-l);padding:26px 24px 24px;background:linear-gradient(160deg,var(--navy),var(--navy-2));color:#fff;overflow:hidden}
+.step::before{counter-increment:s;content:counter(s);position:absolute;right:14px;top:-18px;font-family:var(--f-en);font-weight:900;font-size:120px;line-height:1;color:rgba(255,255,255,.08)}
+.step .eyebrow{color:var(--gold)}
+.step h3{font-size:20px;font-weight:900;margin:8px 0 8px}
+.step p{font-size:14.5px;color:var(--on-dark-2)}
+
+/* day timeline */
+.day{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:0;position:relative}
+.day::before{content:"";position:absolute;left:0;right:0;top:27px;height:3px;background:linear-gradient(90deg,var(--c-home),var(--c-eng),var(--c-tr),var(--c-us),var(--c-my));border-radius:3px}
+.slot{position:relative;padding:0 12px 0 0;display:grid;gap:8px;align-content:start}
+.slot .dot{width:56px;height:56px;border-radius:50%;display:grid;place-items:center;background:var(--surface);border:3px solid currentColor;position:relative;z-index:1}
+.slot .dot svg{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+.slot .time{font-family:var(--f-en);font-weight:800;font-size:13px;letter-spacing:.08em;margin-top:6px}
+.slot h3{font-size:17px;font-weight:900;color:var(--fg)}
+.slot p{font-size:14px;color:var(--muted)}
+
+/* sticky tab nav */
+.tabnav{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:30;background:var(--bg)}
+.tabnav .wrap{display:flex;gap:6px;padding-block:8px;overflow-x:auto;scrollbar-width:none}
+.tabnav a{flex:1 0 auto;display:flex;align-items:center;justify-content:center;gap:6px;padding:8px 14px;border-radius:12px;text-decoration:none;font-weight:700;font-size:14px;color:var(--muted)}
+.tabnav a svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+.tabnav a:hover,.tabnav a.on{background:var(--tint);color:var(--fg)}
+.tabnav .lbl{font-size:12px;font-weight:800;color:var(--muted);align-self:center;padding-right:6px;white-space:nowrap}
+
+/* ---------- CHAPTER ---------- */
+.chapter{padding-block:56px 72px;border-top:1px solid var(--line);scroll-margin-top:56px}
+.cover{position:relative;border-radius:28px;overflow:hidden;min-height:250px;display:flex;align-items:flex-end;color:#fff;box-shadow:var(--shadow);
+  background:var(--cc)}
+.cover .art{position:absolute;inset:0;background-size:cover;background-position:right center}
+.cover::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,var(--cc) 18%,color-mix(in srgb,var(--cc) 60%,transparent) 48%,transparent 80%)}
+.cover .in{position:relative;z-index:1;padding:28px 30px;display:grid;gap:6px;max-width:640px}
+.cover .tabname{display:inline-flex;align-items:center;gap:8px;font-weight:900;font-size:14px;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.35);padding:5px 12px 5px 8px;border-radius:99px;width:max-content}
+.cover .tabname svg{width:18px;height:18px;fill:none;stroke:#fff;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.cover .word{font-family:var(--f-en);font-weight:900;font-size:clamp(60px,11vw,120px);letter-spacing:-.05em;line-height:.95;margin-bottom:8px}
+.cover h2{font-size:clamp(20px,2.6vw,28px);font-weight:900}
+.cover p{color:rgba(255,255,255,.88);font-size:15px}
+
+.ch-body{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:40px;margin-top:36px;align-items:start}
+.screens{display:flex;gap:18px;overflow-x:auto;scroll-snap-type:x mandatory;padding:8px 4px 18px;margin:0 -4px;scrollbar-width:thin}
+.screens figure{margin:0;scroll-snap-align:start;display:grid;gap:10px;justify-items:center}
+.screens .phone{width:220px}
+.screens figcaption{font-size:13px;font-weight:700;color:var(--muted);text-align:center;max-width:220px}
+.swipe{font-size:12px;color:var(--muted);font-weight:700;display:flex;align-items:center;gap:6px}
+.feats{display:grid;gap:10px}
+.feat{display:grid;grid-template-columns:auto minmax(0,1fr);gap:4px 14px;padding:14px 16px;border-radius:14px;background:var(--surface);border:1px solid var(--line)}
+.feat .tag{grid-row:span 2;font-family:var(--f-en);font-weight:900;font-size:13px;letter-spacing:-.01em;min-width:64px;height:40px;padding:0 10px;border-radius:10px;display:grid;place-items:center;color:#fff;background:var(--cc)}
+.feat b{font-size:16px}
+.feat span{font-size:14px;color:var(--muted)}
+.merit{margin-top:18px;border-radius:18px;padding:20px 22px;background:color-mix(in srgb,var(--cc) 12%,var(--surface));border:1px solid color-mix(in srgb,var(--cc) 35%,transparent);display:grid;gap:8px}
+.merit .eyebrow{color:var(--cc)}
+.merit ul{margin:0;padding-left:1.2em;display:grid;gap:4px;font-weight:700;font-size:15px}
+.tip{margin-top:12px;font-size:14px;color:var(--muted);display:flex;gap:10px;align-items:flex-start}
+.tip b{flex:none;font-family:var(--f-en);font-weight:900;font-size:11px;letter-spacing:.1em;color:var(--navy-2);background:var(--gold);border-radius:6px;padding:2px 7px;margin-top:3px}
+.sub{margin-top:26px;font-size:18px;font-weight:900;display:flex;align-items:center;gap:10px}
+.sub::before{content:"";width:6px;height:20px;border-radius:3px;background:var(--cc)}
+
+/* mini-tabs for みんな */
+.minitabs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:8px}
+.minitabs .mt:first-child{grid-column:1/-1}
+.nw{display:inline-block}
+.mt{border-radius:14px;background:var(--surface);border:1px solid var(--line);padding:14px;display:grid;gap:6px;align-content:start}
+.mt .en{font-weight:900;font-size:11px;letter-spacing:.14em;color:var(--cc)}
+.mt b{font-size:16px}
+.mt span{font-size:13px;color:var(--muted);line-height:1.6}
+
+/* ---------- KEEP GOING ---------- */
+.keep{background:linear-gradient(170deg,var(--navy) 0%,var(--navy-2) 100%);color:#fff;border-radius:0;position:relative;overflow:hidden}
+.keep::before{content:"";position:absolute;inset:0;background:url(img/reward.webp) right top/min(720px,90%) no-repeat;opacity:.22}
+.keep .wrap{position:relative}
+.keep .sec-head .eyebrow{color:var(--gold)}
+.keep .sec-head p{color:var(--on-dark-2)}
+.kgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.kcard{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.16);border-radius:var(--r-l);padding:22px;display:grid;gap:12px;align-content:start;backdrop-filter:blur(6px)}
+.kcard h3{font-size:19px;font-weight:900}
+.kcard p{font-size:14px;color:var(--on-dark-2)}
+.pts{display:grid;gap:6px}
+.pts div{display:flex;align-items:center;gap:12px;font-size:14px;font-weight:700}
+.pts .v{font-family:var(--f-en);font-weight:900;font-size:18px;color:var(--gold);min-width:46px;text-align:right}
+.ladder{display:flex;flex-wrap:wrap;gap:6px}
+.ladder span{font-size:12px;font-weight:700;padding:5px 10px;border-radius:99px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.14)}
+.ladder span em{font-style:normal;font-family:var(--f-en);font-weight:900;color:var(--gold);margin-right:4px}
+.ladder span.top{background:linear-gradient(180deg,var(--gold-2),var(--gold));color:var(--navy-2);border-color:transparent}
+.ladder span.top em{color:var(--navy-2)}
+.rungs{display:grid;grid-template-columns:repeat(9,minmax(0,1fr));align-items:end;gap:4px;height:120px}
+.rungs i{display:block;border-radius:6px 6px 2px 2px;background:var(--rc);position:relative}
+.rungs i b{position:absolute;top:-20px;left:50%;transform:translateX(-50%);font-family:var(--f-en);font-size:11px;font-weight:900;color:#fff}
+.rnames{display:grid;grid-template-columns:repeat(9,minmax(0,1fr));gap:4px;font-size:9.5px;color:var(--on-dark-2);text-align:center;line-height:1.3;font-weight:700}
+
+/* PC */
+.pc{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:36px;align-items:center}
+.browser{border-radius:16px;overflow:hidden;box-shadow:var(--shadow);border:1px solid var(--line);background:var(--surface)}
+.browser .bar{display:flex;gap:6px;padding:10px 14px;background:var(--tint)}
+.browser .bar i{width:11px;height:11px;border-radius:50%;background:var(--line)}
+.browser img{display:block;width:100%}
+.pc ul{margin:0;padding:0;list-style:none;display:grid;gap:12px}
+.pc li{display:grid;grid-template-columns:auto minmax(0,1fr);gap:12px;align-items:start;font-size:15px}
+.pc li b.k{font-family:var(--f-en);font-weight:900;font-size:12px;background:var(--tint);color:var(--sky);border-radius:8px;padding:4px 8px;white-space:nowrap}
+
+/* help */
+.help{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.hcard{border-radius:var(--r-m);background:var(--surface);border:1px solid var(--line);padding:22px;display:grid;gap:8px;align-content:start}
+.hcard .where{font-size:12px;font-weight:800;color:var(--sky)}
+.hcard h3{font-size:18px;font-weight:900}
+.hcard p{font-size:14px;color:var(--muted)}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:4px}
+.chips span{font-size:12px;font-weight:700;border-radius:99px;padding:3px 10px;background:var(--tint)}
+
+/* closing */
+.closing{position:relative;overflow:hidden;color:#fff;background:linear-gradient(120deg,#E2643A,#F2B705)}
+.closing::before{content:"";position:absolute;inset:0;background:url(img/cheers.webp) right center/cover no-repeat;mask-image:linear-gradient(90deg,transparent 25%,#000 70%);-webkit-mask-image:linear-gradient(90deg,transparent 25%,#000 70%)}
+.closing .wrap{position:relative;padding-block:80px}
+.closing .word{font-family:var(--f-en);font-weight:900;font-size:clamp(64px,12vw,140px);letter-spacing:-.05em;line-height:.85;text-shadow:0 8px 30px rgba(120,40,0,.25)}
+.closing h2{font-size:clamp(24px,3.4vw,36px);font-weight:900;margin-top:16px;text-shadow:0 2px 14px rgba(120,40,0,.35)}
+.closing p{margin-top:12px;font-size:16px;max-width:30em;color:rgba(255,255,255,.92)}
+.closing .btn-gold{background:#fff;color:#B4430F;margin-top:26px}
+footer{padding-block:28px 40px;font-size:13px;color:var(--muted)}
+footer .wrap{display:grid;gap:4px}
+
+/* ---------- responsive ---------- */
+@media (max-width: 960px){
+  .hero .wrap{grid-template-columns:minmax(0,1fr);padding-block:44px 56px}
+  .hero-phone{transform:rotate(2deg);margin-top:8px}
+  .hero-phone .badge{left:-8px}
+  .benefits{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .ch-body{grid-template-columns:minmax(0,1fr);gap:26px}
+  .kgrid,.help{grid-template-columns:minmax(0,1fr)}
+  .pc{grid-template-columns:minmax(0,1fr)}
+  .day{grid-template-columns:minmax(0,1fr);gap:22px}
+  .day::before{left:27px;right:auto;top:0;bottom:0;width:3px;height:auto;background:linear-gradient(180deg,var(--c-home),var(--c-eng),var(--c-tr),var(--c-us),var(--c-my))}
+  .slot{grid-template-columns:56px minmax(0,1fr);gap:2px 16px;padding:0}
+  .slot .dot{grid-row:span 3}
+  .slot .time{margin-top:0}
+}
+@media (max-width: 720px){
+  .pillars,.steps{grid-template-columns:minmax(0,1fr)}
+  .pillar{flex-direction:row}
+  .pillar .art{aspect-ratio:auto;width:38%;flex:none}
+  .pillar .art .word{font-size:34px;left:10px}
+  .pillar .body{padding:16px}
+  .tabnav .lbl{display:none}
+  .tabnav a{padding:8px 10px;font-size:13px}
+  .cover{min-height:230px}
+  .cover .in{padding:22px 20px}
+  .cover::after{background:linear-gradient(0deg,var(--cc) 30%,color-mix(in srgb,var(--cc) 55%,transparent) 65%,transparent 100%)}
+  section{padding-block:56px}
+  .closing::before{opacity:.35;mask-image:linear-gradient(180deg,transparent 0%,#000 100%);-webkit-mask-image:linear-gradient(180deg,transparent 0%,#000 100%)}
+}
+@media (max-width: 480px){
+  .benefits{grid-template-columns:minmax(0,1fr)}
+  .minitabs{grid-template-columns:minmax(0,1fr)}
+  .pillar{flex-direction:column}
+  .pillar .art{width:auto;aspect-ratio:5/2}
+  .hero-phone .badge{display:none}
+  .rnames{font-size:8.5px}
+}
+</style>
+</head>
+<body>
+
+<!-- ============ HERO ============ -->
+<header class="hero">
+  <div class="wrap">
+    <div>
+      <div class="brand">チアーズ <span class="go">GO!</span> <span class="pill">BETA</span></div>
+      <h1><span class="big">Cheers,<br>every day.</span><span class="nw">チアーズGO!</span> <span class="nw">つかいかたブック</span></h1>
+      <p class="lead">英語を話す。海外にお茶を届ける。世界に仲間をつくる。<br><b>チアーズメイトの毎日が、このアプリ1つにまとまっています。</b>開いたら「今日やること」がもう決まっていて、やった分だけ数字とレベルが育っていきます。</p>
+      <div class="pillars-mini">
+        <span><i style="background:#B4A0FF">En</i>英語を話せる</span>
+        <span><i style="background:#4FD1BC">Tr</i>海外に届ける</span>
+        <span><i style="background:#FFB27A">Ch</i>世界と乾杯</span>
+        <span><i style="background:var(--gold)">My</i>積み上げが見える</span>
+      </div>
+      <div class="cta-row">
+        <a class="btn btn-gold" href="#tabs">5つのタブを見る</a>
+        <a class="btn btn-ghost" href="#start">はじめかた</a>
+      </div>
+    </div>
+    <div class="hero-phone" style="position:relative">
+      <div class="phone"><img src="img/home1.webp" alt="チアーズGO!のホーム画面。今週のリズムと今日のミッション"></div>
+      <div class="badge">今日のミッション<b class="num">2 / 3</b>あと1つで達成！</div>
+    </div>
+  </div>
+</header>
+
+<!-- ============ WHAT ============ -->
+<section id="what">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">What is Cheers GO!</span>
+      <h2>めざすのは「世界中に乾杯できる仲間がいる、グローバルフリーランス」</h2>
+      <p>チアーズGO!は、チアーズメイトの受講生のためのアプリです。3つの柱をまいにち少しずつ進めて、マイで「どこまで来たか」を見る。それだけのシンプルな仕組みです。</p>
+    </div>
+    <div class="pillars">
+      <article class="pillar">
+        <div class="art" style="background-image:url(img/speak.webp)"><span class="word">Speak</span></div>
+        <div class="body">
+          <h3>英語　自分の言葉で話せる</h3>
+          <p>自分専用の台本で「感情スピーキング」を毎日くり返し、AI英会話で実戦練習。話す速さや返事の速さが数字で育ちます。</p>
+          <span class="goal">目安：1分で155語・返事は2秒以内</span>
+        </div>
+      </article>
+      <article class="pillar">
+        <div class="art" style="background-image:url(img/trade.webp)"><span class="word">Trade</span></div>
+        <div class="body">
+          <h3>貿易　海外のお店に届ける</h3>
+          <p>毎日20社の海外クライアントにメッセージ。送信から成約までの数字がひと目でわかり、見積もりや輸出できる国もアプリで調べられます。</p>
+          <span class="goal">目安：1日20通・21日間チャレンジ</span>
+        </div>
+      </article>
+      <article class="pillar">
+        <div class="art" style="background-image:url(img/meet.webp)"><span class="word">Cheers</span></div>
+        <div class="body">
+          <h3>乾杯　世界に仲間ができる</h3>
+          <p>やったことや気持ちをタイムラインで発信。ひろばで声で話し、オフ会で会い、外国の方との乾杯写真を地図にためていきます。</p>
+          <span class="goal">目安：国内5人・海外1か国1人と乾杯</span>
+        </div>
+      </article>
+    </div>
+    <div class="my-strip">
+      <b class="word">+ My</b>
+      <p>3つの柱の積み上げは、すべて「マイ」に集まります。入会した日の目標と、今のわたしを並べて見られます。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ BENEFITS ============ -->
+<section id="merit" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Why it works</span>
+      <h2>使うと、こんないいことがあります</h2>
+    </div>
+    <div class="benefits">
+      <div class="benefit"><span class="k">01 · FOCUS</span><h3>迷わない</h3><p>開いた瞬間に「今日の1つ」と「今日やること」が出ます。何から手をつけるか考える時間がゼロに。</p><span class="how">ホームの「はじめる」を押すだけ</span></div>
+      <div class="benefit"><span class="k">02 · KEEP</span><h3>続けられる</h3><p>数えるのは「週5日」。休んだ日はお休みチケットが自動でつなぎ、戻ってきた日はチケットが1枚もどります。</p><span class="how">責めない「やさしい連続記録」</span></div>
+      <div class="benefit"><span class="k">03 · GROW</span><h3>伸びが見える</h3><p>話した回数、話す速さ、送った数、乾杯した国。がんばりが全部数字とレベルになり、声のアルバムで初日の声と聴き比べもできます。</p><span class="how">5つの英語力・Lv・バッジ</span></div>
+      <div class="benefit"><span class="k">04 · TOGETHER</span><h3>ひとりじゃない</h3><p>仲間の「今日やったよ」が流れてきて、乾杯やエールを送り合えます。同じ時間に空いている仲間とも、すぐつながれます。</p><span class="how">タイムライン・ひろば・乾杯バディ</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ START ============ -->
+<section id="start" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Getting started</span>
+      <h2>はじめの3ステップ</h2>
+      <p>最初の1週間は、ホームとマイにある「はじめの1週間ガイド」が1日ずつ案内してくれます。</p>
+    </div>
+    <div class="steps">
+      <div class="step"><span class="eyebrow">Step 1</span><h3>自分専用のリンクを開く</h3><p>運営から届くあなた専用のリンクを1回開けば、次からはこの端末でそのまま開けます。</p></div>
+      <div class="step"><span class="eyebrow">Step 2</span><h3>ホーム画面に追加する</h3><p>ブラウザのメニューから「ホーム画面に追加」。アイコンをタップするだけで、アプリのように開けます。</p></div>
+      <div class="step"><span class="eyebrow">Step 3</span><h3>英語の台本をつくる</h3><p>英語タブの「台本をつくる」で、地元・趣味・仕事・夢など話したいことを入れるだけ。あなた専用の教材ができます。</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ A DAY ============ -->
+<section id="day" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">A day with Cheers GO!</span>
+      <h2>1日の使い方（モデルコース）</h2>
+      <p>全部やらなくて大丈夫。ホームの「今日のミッション」3つのうち、できるものからでOKです。</p>
+    </div>
+    <div class="day">
+      <div class="slot" style="color:var(--c-home)"><span class="dot"><svg viewBox="0 0 24 24"><path d="M4 10.5 12 4l8 6.5V20a1 1 0 0 1-1 1h-5v-6h-4v6H5a1 1 0 0 1-1-1z"/></svg></span><span class="time">MORNING</span><h3>ホームで今日を確認</h3><p>今日のミッションと「今日の1つ」を見て、「はじめる」をタップ。</p></div>
+      <div class="slot" style="color:var(--c-eng)"><span class="dot"><svg viewBox="0 0 24 24"><path d="M12 3a3 3 0 0 1 3 3v5a3 3 0 0 1-6 0V6a3 3 0 0 1 3-3z"/><path d="M5.5 11a6.5 6.5 0 0 0 13 0M12 17.5V21"/></svg></span><span class="time">COMMUTE</span><h3>英語で回数を積む</h3><p>聞く・読む → 感情スピーキング5回。移動中は「ながら耳トレ」も。</p></div>
+      <div class="slot" style="color:var(--c-tr)"><span class="dot"><svg viewBox="0 0 24 24"><path d="M4 9h16v9a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1z"/><path d="M9 9V7a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2"/><path d="M4 13h16"/></svg></span><span class="time">DAYTIME</span><h3>貿易で20社に送る</h3><p>文章をコピーしてInstagramやメールで送り、「送信済み」にするだけ。</p></div>
+      <div class="slot" style="color:var(--c-us)"><span class="dot"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.2"/><circle cx="17" cy="9" r="2.6"/><path d="M3 20c.8-3.6 3.2-5.6 6-5.6s5.2 2 6 5.6M15 14.6c2.6 0 4.8 1.6 5.6 4.6"/></svg></span><span class="time">EVENING</span><h3>みんなで「やったよ」</h3><p>練習のあとのカードを1タップでシェア。仲間の投稿に乾杯とエールを。</p></div>
+      <div class="slot" style="color:var(--c-my)"><span class="dot"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.2-4.4 4.2-6.6 8-6.6s6.8 2.2 8 6.6"/></svg></span><span class="time">NIGHT</span><h3>マイで積み上げを見る</h3><p>カレンダーが1マス埋まる。連続記録とレベルの伸びを確認して、おやすみなさい。</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TAB NAV ============ -->
+<nav class="tabnav" id="tabs" aria-label="タブの解説へ移動">
+  <div class="wrap">
+    <span class="lbl">5つのタブ</span>
+    <a href="#home"><svg viewBox="0 0 24 24"><path d="M4 10.5 12 4l8 6.5V20a1 1 0 0 1-1 1h-5v-6h-4v6H5a1 1 0 0 1-1-1z"/></svg>ホーム</a>
+    <a href="#english"><svg viewBox="0 0 24 24"><path d="M12 3a3 3 0 0 1 3 3v5a3 3 0 0 1-6 0V6a3 3 0 0 1 3-3z"/><path d="M5.5 11a6.5 6.5 0 0 0 13 0M12 17.5V21"/></svg>英語</a>
+    <a href="#trade"><svg viewBox="0 0 24 24"><path d="M4 9h16v9a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1z"/><path d="M9 9V7a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2"/><path d="M4 13h16"/></svg>貿易</a>
+    <a href="#minna"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.2"/><circle cx="17" cy="9" r="2.6"/><path d="M3 20c.8-3.6 3.2-5.6 6-5.6s5.2 2 6 5.6M15 14.6c2.6 0 4.8 1.6 5.6 4.6"/></svg>みんな</a>
+    <a href="#my"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.2-4.4 4.2-6.6 8-6.6s6.8 2.2 8 6.6"/></svg>マイ</a>
+  </div>
+</nav>
+
+<!-- ============ HOME ============ -->
+<article class="chapter" id="home" style="--cc:#1F3F8F">
+  <div class="wrap">
+    <div class="cover" style="--cc:#1A2F66"><div class="art" style="background-image:url(img/plaza_night.webp)"></div>
+      <div class="in">
+        <span class="tabname"><svg viewBox="0 0 24 24"><path d="M4 10.5 12 4l8 6.5V20a1 1 0 0 1-1 1h-5v-6h-4v6H5a1 1 0 0 1-1-1z"/></svg>ホーム</span>
+        <span class="word">Today</span>
+        <h2>「今日、何をする？」がすぐわかる場所</h2>
+        <p>今日と今週のことだけが並ぶ、毎日いちばん最初に開くタブです。</p>
+      </div>
+    </div>
+    <div class="ch-body">
+      <div>
+        <div class="screens">
+          <figure><div class="phone"><img src="img/home1.webp" alt="ホーム上部：今週のリズムと今日のミッション"></div><figcaption>今週のリズムと今日のミッション</figcaption></figure>
+          <figure><div class="phone"><img src="img/home2.webp" alt="ホーム下部：英語をのばす・今週のひろば・今日やること"></div><figcaption>英語の近道・今週のひろば・目標</figcaption></figure>
+        </div>
+        <span class="swipe">横にスワイプで次の画面</span>
+      </div>
+      <div>
+        <div class="feats">
+          <div class="feat"><span class="tag">Rhythm</span><b>今週のリズム</b><span>今週7日のうち何日やれたか。週5日で達成。休んだ日はお休みチケットが自動でつなぎます。</span></div>
+          <div class="feat"><span class="tag">Mission</span><b>今日のミッション</b><span>「今日の練習」「今日の送信」「今日の応援」の3つ。リングが埋まっていくのが気持ちいい。</span></div>
+          <div class="feat"><span class="tag">Next</span><b>今日の1つ ＋「はじめる」</b><span>いまのあなたに一番おすすめの1つ。今月の目標の分野を優先して選んでくれます。</span></div>
+          <div class="feat"><span class="tag">ToDo</span><b>今日やること</b><span>送信・ひとりクエスト・目標づくりなどをチェックリストで。右上のベルからも見られます。</span></div>
+          <div class="feat"><span class="tag">Plaza</span><b>今週のひろば・次の講座</b><span>英語ロールプレイ、もくもく作業、オフ会、全体講座の予定が1行でわかります。</span></div>
+        </div>
+        <div class="merit"><span class="eyebrow">Merit</span><ul><li>考えずに、開いてすぐ動ける</li><li>英語・貿易・仲間のバランスが自然ととれる</li><li>途切れても「おかえり！」から再スタートできる</li></ul></div>
+        <p class="tip"><b>TIP</b>まずは「はじめる」ボタンだけ押す、と決めておくと毎日が続きます。</p>
+      </div>
+    </div>
+  </div>
+</article>
+
+<!-- ============ ENGLISH ============ -->
+<article class="chapter" id="english" style="--cc:#6B4BD8">
+  <div class="wrap">
+    <div class="cover" style="--cc:#5A3FC4"><div class="art" style="background-image:url(img/speak.webp)"></div>
+      <div class="in">
+        <span class="tabname"><svg viewBox="0 0 24 24"><path d="M12 3a3 3 0 0 1 3 3v5a3 3 0 0 1-6 0V6a3 3 0 0 1 3-3z"/><path d="M5.5 11a6.5 6.5 0 0 0 13 0M12 17.5V21"/></svg>英語</span>
+        <span class="word">Speak</span>
+        <h2>話せば話すほど、回数とレベルが育つ場所</h2>
+        <p>自分の言いたいことを、自分の台本で、何度もくり返す。それがいちばんの近道です。</p>
+      </div>
+    </div>
+    <div class="ch-body">
+      <div>
+        <div class="screens">
+          <figure><div class="phone"><img src="img/eng1.webp" alt="英語タブ：台本をつくる・感情スピーキングの回数"></div><figcaption>台本づくりと今日の感情スピーキング</figcaption></figure>
+          <figure><div class="phone"><img src="img/eng2.webp" alt="英語タブ：MY STATUSの五角形"></div><figcaption>MY STATUS：5つの力の五角形</figcaption></figure>
+          <figure><div class="phone"><img src="img/eng4.webp" alt="英語タブ：声のアルバムと練習の道具"></div><figcaption>声のアルバムと練習の道具</figcaption></figure>
+          <figure><div class="phone"><img src="img/eng3.webp" alt="英語タブ：じぶんで選んで練習するの一覧"></div><figcaption>じぶんで選べる12の練習</figcaption></figure>
+        </div>
+        <span class="swipe">横にスワイプで次の画面</span>
+      </div>
+      <div>
+        <div class="feats">
+          <div class="feat"><span class="tag">Make</span><b>台本をつくる（オーダーメイド教材）</b><span>話したいことを入れるだけで、あなたのレベルに合った正しい英語の台本に。お手本はネイティブの声で流れます。</span></div>
+          <div class="feat"><span class="tag">Reps</span><b>感情スピーキング</b><span>段落を1つ言い切ったら1回。5回「ウォームアップ」→10回「エンジンON」→…→50回「レジェンド」とはしごを登り、節目で先生のボイスが届きます。</span></div>
+          <div class="feat"><span class="tag">Flow</span><b>今日の流れ</b><span>① 聞く・読む（約2分）→ ② 感情スピーキング → ③ AIトレーニング（3往復〜）。上から順にやるだけ。</span></div>
+          <div class="feat"><span class="tag">Talk</span><b>AI英会話</b><span>空港、カフェ、商談などの場面でAIと会話。相手があなたのレベルに合わせて話し方を変えます。顔ありでも声だけでもOK。</span></div>
+          <div class="feat"><span class="tag">Status</span><b>MY STATUS</b><span>語る・つなぐ・主導・提案・伝わるの5つの力を五角形で。先月の自分と重ねて比べられます。</span></div>
+          <div class="feat"><span class="tag">Voice</span><b>声のアルバム</b><span>週に1本だけ声をとっておき、1か月後に初日の声と聴き比べ。声はスマホの中だけに残ります。</span></div>
+        </div>
+        <p class="sub">じぶんで選べる練習の道具</p>
+        <div class="chips" style="margin-top:10px">
+          <span>2秒応答</span><span>リスニング</span><span>音読チェック</span><span>単語帳</span><span>英語日記</span><span>にがて回収</span><span>貿易の英語</span><span>会話を録音</span><span>会話の練習・先生モード</span><span>ながら耳トレ</span><span>集中の乾杯グラス</span><span>会員サイトの講座</span>
+        </div>
+        <div class="merit"><span class="eyebrow">Merit</span><ul><li>教材が「自分の話したいこと」だから、すぐ実戦で使える</li><li>回数・語数・返事の速さで、上達が目に見える</li><li>音声は全部ネイティブの声。再生バーで10秒送り戻し・速さ・国の英語も選べる</li></ul></div>
+        <p class="tip"><b>TIP</b>完璧より回数。1日5回の「ウォームアップ」から始めて、10回で先生のボイスをもらいましょう。100回言えた台本は「卒業」です。</p>
+      </div>
+    </div>
+  </div>
+</article>
+
+<!-- ============ TRADE ============ -->
+<article class="chapter" id="trade" style="--cc:#0F8A7A">
+  <div class="wrap">
+    <div class="cover" style="--cc:#0B6E66"><div class="art" style="background-image:url(img/trade.webp)"></div>
+      <div class="in">
+        <span class="tabname"><svg viewBox="0 0 24 24"><path d="M4 9h16v9a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1z"/><path d="M9 9V7a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2"/><path d="M4 13h16"/></svg>貿易</span>
+        <span class="word">Trade</span>
+        <h2>海外のお店に届けて、成約までの道が見える場所</h2>
+        <p>毎日の20通が、返信・サンプル・成約へとつながっていく様子を追いかけられます。</p>
+      </div>
+    </div>
+    <div class="ch-body">
+      <div>
+        <div class="screens">
+          <figure><div class="phone"><img src="img/tr1.webp" alt="貿易タブ：送信から成約までの実績と入口"></div><figcaption>送った数 → 成約がひと目で</figcaption></figure>
+          <figure><div class="phone"><img src="img/tr2.webp" alt="貿易タブ：ステージと7日の送信グラフ"></div><figcaption>ステージ・7日の送信・月別</figcaption></figure>
+        </div>
+        <span class="swipe">横にスワイプで次の画面</span>
+      </div>
+      <div>
+        <div class="feats">
+          <div class="feat"><span class="tag">Send</span><b>海外クライアントに送る</b><span>今日の20社がボタンで並びます。文章をコピー → Instagramやメールで送る → 「送信済み」で消えていき、20件で完了。</span></div>
+          <div class="feat"><span class="tag">Find</span><b>新しいクライアントを探す</b><span>自分で見つけたお店も、送る前に重複チェック。ほかの仲間とかぶりません。</span></div>
+          <div class="feat"><span class="tag">Quote</span><b>輸出できる国・見積もり</b><span>国・kg・利益率を選ぶと、お客様に出す価格と自分の利益がすぐ出ます。</span></div>
+          <div class="feat"><span class="tag">Map</span><b>輸出できる国マップ</b><span>商材×国で、送れる国と「狙い目」の国がひと目でわかります。</span></div>
+          <div class="feat"><span class="tag">Stats</span><b>実績ダッシュボード</b><span>送信・返信・アンケート・サンプル・成約を、累計／今月／今日で。返信率などの割合と、送った方法の内訳も。</span></div>
+          <div class="feat"><span class="tag">Learn</span><b>会員サイトの講座</b><span>「つづきから」ボタンで、見積書の作り方などの講座に1タップで戻れます。</span></div>
+        </div>
+        <div class="merit"><span class="eyebrow">Merit</span><ul><li>毎日やることが「20社に送る」1つにしぼられている</li><li>数字で「次にどこを伸ばせばいいか」がわかる</li><li>価格計算や国選びで迷う時間がなくなる</li></ul></div>
+        <p class="tip"><b>TIP</b>7日の送信グラフで「1日20通」の点線をこえる日を増やしましょう。21日間チャレンジの連続記録も出ます。</p>
+      </div>
+    </div>
+  </div>
+</article>
+
+<!-- ============ MINNA ============ -->
+<article class="chapter" id="minna" style="--cc:#E2643A">
+  <div class="wrap">
+    <div class="cover" style="--cc:#C9502A"><div class="art" style="background-image:url(img/meet.webp)"></div>
+      <div class="in">
+        <span class="tabname"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.2"/><circle cx="17" cy="9" r="2.6"/><path d="M3 20c.8-3.6 3.2-5.6 6-5.6s5.2 2 6 5.6M15 14.6c2.6 0 4.8 1.6 5.6 4.6"/></svg>みんな</span>
+        <span class="word">Together</span>
+        <h2>がんばっている仲間と、自然につながる場所</h2>
+        <p>交流しようと気負わなくても、発信するだけで仲良くなれる仕組みです。</p>
+      </div>
+    </div>
+    <div class="ch-body">
+      <div>
+        <div class="screens">
+          <figure><div class="phone"><img src="img/us_tl.webp" alt="みんなタブ：タイムライン"></div><figcaption>タイムライン</figcaption></figure>
+          <figure><div class="phone"><img src="img/us_now.webp" alt="みんなタブ：いま（ひろば）"></div><figcaption>いま：ひろばに入る</figcaption></figure>
+          <figure><div class="phone"><img src="img/us_mem.webp" alt="みんなタブ：メンバー名鑑"></div><figcaption>メンバー名鑑</figcaption></figure>
+          <figure><div class="phone"><img src="img/us_ch.webp" alt="みんなタブ：チアーズPHOTOチャレンジとアルバム"></div><figcaption>チアーズ：乾杯写真</figcaption></figure>
+          <figure><div class="phone"><img src="img/us_rank.webp" alt="みんなタブ：今週のボスと週リーグ"></div><figcaption>ランキング：ボスと週リーグ</figcaption></figure>
+        </div>
+        <span class="swipe">横にスワイプで次の画面</span>
+      </div>
+      <div>
+        <p class="sub" style="margin-top:0">上の5つの切り替えで、それぞれこんなことができます</p>
+        <div class="minitabs">
+          <div class="mt"><span class="en">TIMELINE</span><b>タイムライン</b><span>練習後の「やったよカード」を1タップで投稿。気持ちのひとことも。乾杯・すごい・わかる・がんばれ・ナイス英語で反応し、ひとことエールを送れます。</span></div>
+          <div class="mt"><span class="en">NOW</span><b>いま</b><span>ひろばに入ると、卓に近づいた人と声で話せます（録音なし）。話す・作業会・相談する・オフ会から選ぶと、同じ時間に空いている人とつながります。</span></div>
+          <div class="mt"><span class="en">MEMBERS</span><b>名鑑</b><span>趣味・仕事・商材・国など、あなたとの共通点が多い順に。気になる人を乾杯バディに誘えます。</span></div>
+          <div class="mt"><span class="en">CHEERS</span><b>チアーズ</b><span>外国の方との乾杯写真を投稿すると、翌朝みんなの乾杯マップに。今月のPHOTOチャレンジにも参加。</span></div>
+          <div class="mt"><span class="en">RANKING</span><b>ランキング</b><span>全員で「今週のボス」を倒す協力プレイと、近いペースの4人で競う週リーグ（降格なし）。日・週・月のランキングも。</span></div>
+        </div>
+        <div class="merit"><span class="eyebrow">Merit</span><ul><li>「自分だけじゃない」とわかるから、やる気が続く</li><li>英語を話す相手、一緒に作業する仲間がすぐ見つかる</li><li>乾杯バディは「全員が練習した日」だけ記録がのびる、支え合いの仕組み</li></ul></div>
+        <p class="tip"><b>TIP</b>気になる投稿はミュートもできます（相手には知らせません）。自分のペースで使えるので安心です。</p>
+      </div>
+    </div>
+  </div>
+</article>
+
+<!-- ============ MY ============ -->
+<article class="chapter" id="my" style="--cc:#B07F00">
+  <div class="wrap">
+    <div class="cover" style="--cc:#A87400"><div class="art" style="background-image:url(img/reward.webp)"></div>
+      <div class="in">
+        <span class="tabname"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.2-4.4 4.2-6.6 8-6.6s6.8 2.2 8 6.6"/></svg>マイ</span>
+        <span class="word">My Story</span>
+        <h2>「わたし、どこまで来た？」が見える場所</h2>
+        <p>入会した日から今日までの積み上げと、ごほうびが全部ここにあります。</p>
+      </div>
+    </div>
+    <div class="ch-body">
+      <div>
+        <div class="screens">
+          <figure><div class="phone"><img src="img/my1.webp" alt="マイ：プロフィールと積み上げ"></div><figcaption>プロフィールと6週間のカレンダー</figcaption></figure>
+          <figure><div class="phone"><img src="img/my2.webp" alt="マイ：3つの柱の積み上げ"></div><figcaption>3つの柱：英語・貿易・乾杯</figcaption></figure>
+        </div>
+        <span class="swipe">横にスワイプで次の画面</span>
+      </div>
+      <div>
+        <div class="feats">
+          <div class="feat"><span class="tag">Profile</span><b>プロフィール</b><span>写真・ひとこと・趣味や仕事を登録すると、名鑑やひろばのアイコンに反映されます。</span></div>
+          <div class="feat"><span class="tag">Progress</span><b>わたしの歩み</b><span>入会何日目か、レベル、ポイント、この6週間の活動カレンダー。</span></div>
+          <div class="feat"><span class="tag">Pillars</span><b>3つの柱</b><span>英語（練習した日・話す速さ・答える速さ）、貿易（送った数〜成約）、乾杯（国・PHOTO・仲間）を入会から今まで。</span></div>
+          <div class="feat"><span class="tag">Before</span><b>入会したときの目標 と いま</b><span>はじめてのインタビューで話した目標と、今の自分を並べて見られます。月のふりかえりも。</span></div>
+          <div class="feat"><span class="tag">Reward</span><b>コレクションとごほうび</b><span>バッジ、自己ベスト、乾杯図鑑、アルバム、ポイント推移、週ポイントで交換できるごほうびショップ。</span></div>
+          <div class="feat"><span class="tag">Support</span><b>予定・サポート・設定</b><span>講座スケジュールと予約、質問ボット、会員サイト、リマインド・通知や表示の設定。</span></div>
+        </div>
+        <div class="merit"><span class="eyebrow">Merit</span><ul><li>「こんなに続けてきたんだ」と自信になる</li><li>入会時の目標を忘れずに、ブレずに進める</li><li>講座・質問・会員サイトの入口がまとまっていて迷わない</li></ul></div>
+        <p class="tip"><b>TIP</b>月末は「ふりかえり」で練習・乾杯・声のビフォーアフターを見て、次の月の目標を決めましょう。</p>
+      </div>
+    </div>
+  </div>
+</article>
+
+<!-- ============ KEEP GOING ============ -->
+<section class="keep" id="keep">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Keep going</span>
+      <h2>楽しく続く、3つのしかけ</h2>
+      <p>がんばりは全部ポイントとレベルに。休んでも、責めずにつないでくれます。</p>
+    </div>
+    <div class="kgrid">
+      <div class="kcard">
+        <h3>チアーズポイント</h3>
+        <div class="pts">
+          <div><span class="v num">+20</span>チアーズPHOTOを投稿</div>
+          <div><span class="v num">+10</span>学び・気づきの共有部屋にシェア</div>
+          <div><span class="v num">+5</span>スレッドを立てる</div>
+          <div><span class="v num">+3</span>仲間の投稿にコメント</div>
+        </div>
+        <p>1週間の目標は <b class="num" style="color:#fff">30pt</b>。届くと「お休みチケット」が1枚もらえます（2枚まで）。やらなかった日に自動で使われて、連続記録をつなぎます。</p>
+      </div>
+      <div class="kcard">
+        <h3>レベルアップ　Lv1 → Lv10</h3>
+        <div class="ladder">
+          <span><em>1</em>はじめの一歩</span><span><em>2</em>ルーキー</span><span><em>3</em>ムードメーカー</span><span><em>4</em>サポーター</span><span><em>5</em>チアリーダー</span><span><em>6</em>コネクター</span><span><em>7</em>アンバサダー</span><span><em>8</em>キャプテン</span><span><em>9</em>レジェンド</span><span class="top"><em>10</em>チアーズマスター</span>
+        </div>
+        <p>ポイントがたまるほど、呼び名が変わっていきます。今の自分の段はマイでいつでも確認できます。</p>
+      </div>
+      <div class="kcard">
+        <h3>感情スピーキングのはしご</h3>
+        <div class="rungs" aria-hidden="true">
+          <i style="--rc:#7FA7D9;height:10%"><b>5</b></i><i style="--rc:#2F86D6;height:18%"><b>10</b></i><i style="--rc:#139A6A;height:26%"><b>15</b></i><i style="--rc:#0F8A8A;height:34%"><b>20</b></i><i style="--rc:#E2643A;height:46%"><b>30</b></i><i style="--rc:#D9487A;height:58%"><b>40</b></i><i style="--rc:#C99300;height:70%"><b>50</b></i><i style="--rc:#8A4FD8;height:84%"><b>75</b></i><i style="--rc:#F2B705;height:100%"><b>100</b></i>
+        </div>
+        <div class="rnames"><span>ウォーム<br>アップ</span><span>エンジン<br>ON</span><span>いい<br>調子</span><span>本気<br>モード</span><span>プロの量</span><span>アスリート</span><span>レジェンド</span><span>伝説の<br>先へ</span><span>100回<br>の人</span></div>
+        <p>1日の回数で段が上がり、節目でYUSUKE先生・KODAI先生からボイスが届きます。通算100・500・1,000回…でバッジも。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PC ============ -->
+<section id="pc">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Phone &amp; PC</span>
+      <h2>スマホでも、パソコンでも</h2>
+      <p>同じリンクをパソコンで開くと、PC向けのレイアウトに切り替わります。じっくり数字を見たい日はパソコンで。</p>
+    </div>
+    <div class="pc">
+      <div class="browser"><div class="bar"><i></i><i></i><i></i></div><img src="img/pc_home.webp" alt="パソコンで開いたチアーズGO!のホーム"></div>
+      <ul>
+        <li><b class="k">LEFT</b><span>左のナビでタブを切り替え。自分のアイコンと連続日数もいつも見えます。</span></li>
+        <li><b class="k">2 COLUMNS</b><span>広い画面ではメインと右の列の2列に。ホームなら右にリズム・目標・今日やることが並びます。</span></li>
+        <li><b class="k">SAME DATA</b><span>スマホでやった練習や送信は、パソコンでも同じように見られます。</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============ HELP ============ -->
+<section id="help" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Need help?</span>
+      <h2>困ったときは</h2>
+    </div>
+    <div class="help">
+      <div class="hcard"><span class="where">どの画面でも右下</span><h3>「質問」ボタン</h3><p>チアーズメイトの資料をもとに、質問ボット（MATCHA）がすぐ答えます。わからないことは担当につないでくれます。</p><div class="chips"><span>貿易について</span><span>英語について</span><span>カリキュラム・サポートについて</span></div></div>
+      <div class="hcard"><span class="where">マイ › 予定・サポート</span><h3>講座スケジュール・予約</h3><p>次の講座の日時がわかり、Googleカレンダーへの追加もワンタップ。</p></div>
+      <div class="hcard"><span class="where">英語・貿易・マイ</span><h3>会員サイト（UTAGE）</h3><p>講座動画は「つづきから」で、前回見ていたレッスンにすぐ戻れます。</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CLOSING ============ -->
+<section class="closing">
+  <div class="wrap">
+    <span class="word">Cheers!</span>
+    <h2>今日の1つから、はじめよう。</h2>
+    <p>5回話す。20社に送る。仲間に1回乾杯する。小さな1つが、世界中に乾杯できる毎日につながっていきます。</p>
+    <a class="btn btn-gold" href="#home">ホームの使い方から読む</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>このページの画面は、チアーズGO!のデモ表示（架空の人・架空の写真・架空の数字）です。</span>
+    <span>2026年11月9日時点の内容です。機能は順次アップデートされます。</span>
+  </div>
+</footer>
+
+<script>
+// 見ている章のタブを光らせる
+(function(){
+  try{
+    var links=[].slice.call(document.querySelectorAll('.tabnav a'));
+    var map={};links.forEach(function(a){map[a.getAttribute('href').slice(1)]=a});
+    if(!('IntersectionObserver' in window))return;
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){links.forEach(function(l){l.classList.remove('on')});var a=map[e.target.id];if(a)a.classList.add('on')}})},{rootMargin:'-40% 0px -55% 0px'});
+    Object.keys(map).forEach(function(id){var el=document.getElementById(id);if(el)io.observe(el)});
+  }catch(e){}
+})();
+</script>
+
+</body></html>
